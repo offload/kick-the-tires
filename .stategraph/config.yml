@@ -1,0 +1,22 @@
+dirs:
+  infra/app:
+    tags: [app, infra]
+  infra/db:
+    tags: [db, infra]
+  infra/network:
+    tags: [network, infra]
+  infra/cache:
+    tags: [cache, infra]
+  envs/dev:
+    tags: [dev]
+  envs/staging:
+    tags: [staging]
+  envs/prod:
+    tags: [prod]
+  stacks/base:
+    tags: [base]
+  stacks/services:
+    tags: [services]
+tags:
+  dest_branch:
+    main: "main"
