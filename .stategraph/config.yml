@@ -92,3 +92,14 @@ workflows:
   - tag_query: "terragrunt in dir"
     engine:
       name: terragrunt
+stacks:
+  names:
+    base:
+      tag_query: "base"
+    services:
+      tag_query: "services"
+      rules:
+        plan_after:
+          - base
+        apply_after:
+          - base
