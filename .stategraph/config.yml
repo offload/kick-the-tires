@@ -113,17 +113,17 @@ drift:
       schedule: hourly
       tag_query: "infra in dir"
       reconcile: false
-  - tag_query: "dir:envs/staging"
-    plan:
-      - type: init
-      - type: plan
-      - type: gates
-        cmd: ["/scripts/emit-gates.sh"]
-    apply:
-      - type: init
-      - type: apply
 automerge:
   enabled: true
   delete_branch: true
 indexer:
   enabled: true
+  - tag_query: "dir:envs/staging"
+    plan:
+      - type: init
+      - type: plan
+      - type: gates
+        cmd: ["${TERRATEAM_ROOT}/scripts/emit-gates.sh"]
+    apply:
+      - type: init
+      - type: apply
