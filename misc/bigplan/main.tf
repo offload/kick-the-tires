@@ -7,7 +7,7 @@ terraform {
 
 variable "fleet_size" {
   type    = number
-  default = 2
+  default = 300
 }
 
 resource "random_pet" "node" {
