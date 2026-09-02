@@ -103,3 +103,10 @@ stacks:
           - base
         apply_after:
           - base
+drift:
+  enabled: true
+  schedules:
+    default:
+      schedule: hourly
+      tag_query: "infra in dir"
+      reconcile: false
