@@ -36,3 +36,8 @@ dirs:
 tags:
   dest_branch:
     main: "main"
+workflows:
+  - tag_query: "dir:envs/dev"
+    engine:
+      name: tofu
+      version: "1.9.1"
