@@ -19,3 +19,10 @@ resource "null_resource" "failapply" {
     rev = local.rev
   }
 }
+
+resource "null_resource" "verify" {
+  triggers = { rev = local.rev }
+  provisioner "local-exec" {
+    command = "echo verifying deployment && exit 1"
+  }
+}
