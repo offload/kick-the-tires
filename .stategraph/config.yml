@@ -33,6 +33,12 @@ dirs:
     tags: [base]
   stacks/services:
     tags: [services]
+  workspaces/multiws:
+    workspaces:
+      default:
+        tags: [defws]
+      alt:
+        tags: [altws]
 tags:
   dest_branch:
     main: "main"
