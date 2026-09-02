@@ -19,3 +19,8 @@ resource "null_resource" "app" {
     rev = local.rev
   }
 }
+
+module "petname" {
+  source = "../../modules/petname"
+  prefix = "app"
+}
