@@ -75,3 +75,11 @@ workflows:
     apply:
       - type: init
       - type: apply
+  - tag_query: "dir:misc/custom"
+    engine:
+      name: custom
+      init: ["${TERRATEAM_ROOT}/scripts/fake-engine.sh", "init"]
+      plan: ["${TERRATEAM_ROOT}/scripts/fake-engine.sh", "plan"]
+      diff: ["${TERRATEAM_ROOT}/scripts/fake-engine.sh", "diff"]
+      apply: ["${TERRATEAM_ROOT}/scripts/fake-engine.sh", "apply"]
+      outputs: ["${TERRATEAM_ROOT}/scripts/fake-engine.sh", "outputs"]
