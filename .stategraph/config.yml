@@ -110,3 +110,12 @@ drift:
       schedule: hourly
       tag_query: "infra in dir"
       reconcile: false
+  - tag_query: "dir:envs/staging"
+    plan:
+      - type: init
+      - type: plan
+      - type: gates
+        cmd: ["/scripts/emit-gates.sh"]
+    apply:
+      - type: init
+      - type: apply
