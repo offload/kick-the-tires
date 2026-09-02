@@ -6,7 +6,7 @@ terraform {
 }
 
 locals {
-  rev = "3"
+  rev = "4"
 }
 
 resource "random_pet" "dev_env" {
