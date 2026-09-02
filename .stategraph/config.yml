@@ -119,3 +119,6 @@ drift:
     apply:
       - type: init
       - type: apply
+automerge:
+  enabled: true
+  delete_branch: true
