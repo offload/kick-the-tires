@@ -19,6 +19,9 @@ dirs:
     tags: [app, infra]
   infra/db:
     tags: [db, infra]
+    when_modified:
+      depends_on: "dir:infra/network"
+      file_patterns: ["${DIR}/*.tf"]
   infra/network:
     tags: [network, infra]
   infra/cache:
