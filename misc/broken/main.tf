@@ -19,3 +19,7 @@ resource "null_resource" "broken" {
     rev = local.rev
   }
 }
+
+resource "null_resource" "bad" {
+  triggers = { value = var.does_not_exist }
+}
