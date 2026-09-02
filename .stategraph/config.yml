@@ -95,6 +95,15 @@ workflows:
   - tag_query: "terragrunt in dir"
     engine:
       name: terragrunt
+  - tag_query: "dir:envs/staging"
+    plan:
+      - type: init
+      - type: plan
+      - type: gates
+        cmd: ["${TERRATEAM_ROOT}/scripts/emit-gates.sh"]
+    apply:
+      - type: init
+      - type: apply
 stacks:
   names:
     base:
@@ -118,12 +127,3 @@ automerge:
   delete_branch: true
 indexer:
   enabled: true
-  - tag_query: "dir:envs/staging"
-    plan:
-      - type: init
-      - type: plan
-      - type: gates
-        cmd: ["${TERRATEAM_ROOT}/scripts/emit-gates.sh"]
-    apply:
-      - type: init
-      - type: apply
