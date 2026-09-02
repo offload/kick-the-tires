@@ -6,7 +6,7 @@ terraform {
 
 variable "prefix" {
   type    = string
-  default = "unit"
+  default = "unit-v2"
 }
 
 resource "random_pet" "this" {

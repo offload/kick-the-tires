@@ -125,3 +125,5 @@ drift:
 automerge:
   enabled: true
   delete_branch: true
+indexer:
+  enabled: true
