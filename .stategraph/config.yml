@@ -26,6 +26,9 @@ dirs:
     tags: [network, infra]
   infra/cache:
     tags: [cache, infra]
+    when_modified:
+      autoapply: true
+      file_patterns: ["${DIR}/*.tf"]
   envs/dev:
     tags: [dev]
   envs/staging:
