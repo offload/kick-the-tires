@@ -39,6 +39,9 @@ dirs:
         tags: [defws]
       alt:
         tags: [altws]
+  "**/terragrunt.hcl":
+    when_modified:
+      file_patterns: ["${DIR}/terragrunt.hcl", "terragrunt/root.hcl"]
 tags:
   dest_branch:
     main: "main"
@@ -83,3 +86,6 @@ workflows:
       diff: ["${TERRATEAM_ROOT}/scripts/fake-engine.sh", "diff"]
       apply: ["${TERRATEAM_ROOT}/scripts/fake-engine.sh", "apply"]
       outputs: ["${TERRATEAM_ROOT}/scripts/fake-engine.sh", "outputs"]
+  - tag_query: "terragrunt in dir"
+    engine:
+      name: terragrunt

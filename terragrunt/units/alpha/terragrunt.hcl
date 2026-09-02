@@ -7,5 +7,5 @@ terraform {
 }
 
 inputs = {
-  prefix = "alpha"
+  prefix = "alpha-v2"
 }
