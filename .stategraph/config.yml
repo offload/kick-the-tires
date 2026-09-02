@@ -47,3 +47,31 @@ workflows:
     engine:
       name: tofu
       version: "1.9.1"
+  - tag_query: "dir:infra/app"
+    plan:
+      - type: init
+      - type: plan
+      - type: run
+        cmd: ["${TERRATEAM_ROOT}/scripts/compliance-report.sh"]
+        capture_output: true
+        visible_on: always
+        format: markdown
+      - type: run
+        cmd: ["${TERRATEAM_ROOT}/scripts/inventory-json.sh"]
+        capture_output: true
+        visible_on: always
+        format:
+          type: code
+          lang: json
+      - type: run
+        cmd: ["sh", "-c", "echo notify failed && exit 6"]
+        capture_output: true
+        ignore_errors: true
+        visible_on: failure
+      - type: run
+        cmd: ["sh", "-c", "echo posted summary to channel"]
+        capture_output: true
+        visible_on: success
+    apply:
+      - type: init
+      - type: apply
